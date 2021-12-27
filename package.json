@@ -1,0 +1,26 @@
+{
+  "name": "mybookshelf",
+  "version": "1.0.0",
+  "description": "“Build the biggest library in the world, sharing your own”",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marsportillo/mybookshelf.git"
+  },
+  "keywords": [
+    "books",
+    "shelfs",
+    "bookshelf"
+  ],
+  "author": "Marco Sportillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marsportillo/mybookshelf/issues"
+  },
+  "homepage": "https://github.com/marsportillo/mybookshelf#readme",
+  "dependencies": {
+    "express": "4.17.2",
+    "express-generator": "4.2.0"
+  }
+}
