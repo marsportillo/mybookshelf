@@ -103,5 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
-# Config db url
-mybookshelf/config/
+# Config db uri
+mybookshelf/config/dev.json
+mybookshelf/config/dev.json
+mybookshelf/config/test.json
