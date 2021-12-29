@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Config db url
-.Config
+config/
