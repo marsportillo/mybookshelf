@@ -104,4 +104,4 @@ dist
 .tern-port
 
 # Config db url
-config/
+mybookshelf/config/
