@@ -104,6 +104,4 @@ dist
 .tern-port
 
 # Config db uri
-mybookshelf/config/dev.json
-mybookshelf/config/dev.json
-mybookshelf/config/test.json
+node_modules/
