@@ -6,6 +6,10 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
 
+const hbs = require("express-handlebars");
+var Handlebars = require("handlebars");
+var MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
 let port = 3000;
 
 let config = require('config');
@@ -28,7 +32,7 @@ app.use(bodyParser.json({ type: 'application/json'}));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -37,7 +41,9 @@ var booksRouter = require('./routes/books');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.engine('.hbs', hbs({extname: '.hbs'}));
+app.set('view engine', '.hbs');
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Routes
 app.use('/', indexRouter);

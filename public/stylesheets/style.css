@@ -1,8 +1,11 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
+.mybookshelf-login-button {
+  background-color: #FDA726;
+  border-radius: 26.6667px;
+  color: #091934;
+  text-align: center;
+  font-weight : bold;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  width:100%;
 }
