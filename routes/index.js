@@ -8,4 +8,16 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.post('/login', function(req, res, next) {
+  return res.render('home', {
+    title: "Mybookshelf | Home"
+  });
+});
+
+router.get('/home', function(req, res, next) {
+  return res.render('home', {
+    title: "Mybookshelf | Home"
+  });
+});
+
 module.exports = router;

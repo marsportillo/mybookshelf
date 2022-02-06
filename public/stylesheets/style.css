@@ -9,3 +9,25 @@
   font-weight: bold;
   width:100%;
 }
+.mybookshelf-navbar {
+  background: #0B1F41;
+  border-radius: 0px 40px 40px 0px;
+}
+
+.mybookshelf-underlined{
+  text-decoration: underline;
+  color: #FDA726;
+}
+
+.mybookshelf-bold{
+  font-weight: bold;
+  color: #FDA726;
+}
+
+.mybookshelf-horizontal-separator {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
