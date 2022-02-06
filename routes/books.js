@@ -9,12 +9,14 @@ router.get('/', function(req, res, next) {
     let query = Book.find({});
     query.exec((err, books) => {
         if(err) res.send(err);
-        res.json({
-            message:"Books found",
+        return res.render('books', {
+            title: "Mybookshelf | “Build the biggest library in the world, sharing your own”",
+            message: "book found",
             books
-        });
+          });
     });
 });
+
 
 /* GET single book by id. */
 router.get('/:id', function(req, res, next) {

@@ -9,7 +9,8 @@ let BookSchema = new Schema(
     year: { type: Number, required: true },
     pages: { type: Number, required: true, min: 1 },
     createdAt: { type: Date, default: Date.now },
-    endedAt: { type: Date}
+    endedAt: { type: Date},
+    status: { type: String}
   },
   {
     versionKey: false
