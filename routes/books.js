@@ -17,6 +17,11 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/addBook', function(req, res, next) {
+    return res.render('addBook', {
+        title: "Mybookshelf | Add new book"
+    });
+});
 
 /* GET single book by id. */
 router.get('/:id', function(req, res, next) {
@@ -33,7 +38,9 @@ router.get('/:id', function(req, res, next) {
 /* POST new book. */
 router.post('/', function(req, res, next) {
     //Creates a new book
+    console.log(req.body)
     var newBook = new Book(req.body);
+    console.log(newBook);
     //Save it into the DB.
     console.log(req.body)
     newBook.save((err,book) => {
