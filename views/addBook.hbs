@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-1">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/books">Books</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Stats</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">Settings</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col">
+        <div class="row" style="padding-top: 5%">
+            <div class="col-10 offset-2">
+                <h1 class="display-6">Hi, Marco</h1>
+                <p class="lead">
+                    Add a new book here.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-2">
+                <form method="POST" action="/books">
+                    <div class="form-group row">
+                        <label for="title" class="col-4 col-form-label">Title</label> 
+                            <div class="col-8">
+                                <input id="title" name="title" type="text" required="required" class="form-control">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="author" class="col-4 col-form-label">Author</label> 
+                        <div class="col-8">
+                            <input id="author" name="author" type="text" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="year" class="col-4 col-form-label">Year</label> 
+                        <div class="col-8">
+                            <input id="year" name="year" type="text" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pages" class="col-4 col-form-label">Pages</label> 
+                        <div class="col-6">
+                            <input id="pages" name="pages" type="text" class="form-control">
+                        </div>
+                        <label for="currentPage" class="col-4 col-form-label">Current Pages</label> 
+                        <div class="col-6">
+                            <input id="currentPage" name="currentPage" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="startDate" class="col-4 col-form-label">Start Date</label> 
+                        <div class="col-8">
+                            <input id="startDate" name="startDate" type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="endDate" class="col-4 col-form-label">End Date</label> 
+                        <div class="col-8">
+                            <input id="endDate" name="endDate" type="date"class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status">
+                            <option value="0">Not Started</option>
+                            <option value="1">In progress</option>
+                            <option value="2">Finished</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <div class="offset-5 col-2">
+                            <button name="submit" type="submit" class="btn btn-primary">Add book</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
