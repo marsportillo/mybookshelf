@@ -21,7 +21,7 @@ describe('Books', () => {
     describe('/GET book', () => {
         it('it should GET all the books', (done) => {
             chai.request(server)
-            .get('/books')
+            .get('/api/books/')
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
@@ -40,7 +40,7 @@ describe('Books', () => {
                 year: 1954
             }
             chai.request(server)
-            .post('/books')
+            .post('/api/books/')
             .send(book)
             .end((err, res) => {
                 res.should.have.status(200);
@@ -59,7 +59,7 @@ describe('Books', () => {
                 pages: 1170
             }
             chai.request(server)
-            .post('/books')
+            .post('/api/books/')
             .send(book)
             .end((err, res) => {
                 res.should.have.status(200);
@@ -83,7 +83,7 @@ describe('Books', () => {
             });
             book.save((err, book) => {
                 chai.request(server)
-                .get('/books/' + book.id)
+                .get('/api/books//' + book.id)
                 .send(book)
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -110,7 +110,7 @@ describe('Books', () => {
             })
             book.save((err, book) => {
                 chai.request(server)
-                .put('/books/' + book.id)
+                .put('/api/books//' + book.id)
                 .send({title: "The Chronicles of Narnia", author: "C.S. Lewis", year: 1950, pages: 778})
                 .end((err, res) => {
                     res.should.have.status(200);
@@ -135,7 +135,7 @@ describe('Books', () => {
             })
             book.save((err, book) => {
                 chai.request(server)
-                .delete('/books/' + book.id)
+                .delete('/api/books/' + book.id)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
