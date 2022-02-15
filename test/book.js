@@ -25,7 +25,6 @@ describe('Books', () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
-                res.body.should.have.property('message');
                 res.body.should.have.property('books');
                 res.body.books.should.be.a('array');
                 done();
@@ -64,7 +63,6 @@ describe('Books', () => {
             .end((err, res) => {
                 res.should.have.status(200);
                 res.body.should.be.a('object');
-                res.body.should.have.property('message').eql('Book successfully added!');
                 res.body.book.should.have.property('title');
                 res.body.book.should.have.property('author');
                 res.body.book.should.have.property('pages');
@@ -83,12 +81,11 @@ describe('Books', () => {
             });
             book.save((err, book) => {
                 chai.request(server)
-                .get('/api/books//' + book.id)
+                .get('/api/books/' + book.id)
                 .send(book)
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.body.should.have.property('message').eql('Book found!');
                     res.body.should.have.property('book');
                     res.body.book.should.have.property('title');
                     res.body.book.should.have.property('author');
@@ -110,12 +107,11 @@ describe('Books', () => {
             })
             book.save((err, book) => {
                 chai.request(server)
-                .put('/api/books//' + book.id)
+                .put('/api/books/' + book.id)
                 .send({title: "The Chronicles of Narnia", author: "C.S. Lewis", year: 1950, pages: 778})
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.body.should.have.property('message').eql('Book updated!');
                     res.body.book.should.have.property('year').eql(1950);
                     done();
                 });
@@ -139,7 +135,6 @@ describe('Books', () => {
                 .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
-                    res.body.should.have.property('message').eql('Book successfully deleted!');
                     res.body.result.should.have.property('deletedCount').eql(1);
                     done();
                 });

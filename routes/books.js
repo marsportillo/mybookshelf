@@ -2,20 +2,21 @@ var express = require('express');
 var router = express.Router();
 
 let Book = require('../models/book');
-
+let BookController = require('../controller/bookController')
 
 /* GET books listing. */
-router.get('/', function(req, res, next) {
-    let query = Book.find({});
-    query.exec((err, books) => {
-        if(err) res.send(err);
-        return res.render('books', {
-            title: "Mybookshelf | “Build the biggest library in the world, sharing your own”",
-            message: "book found",
-            books
-          });
-    });
+router.get('/', async (req, res, next) => {
+    try {
+        res.render({
+            title: "Mybookshelf | Books List",
+            message: 'Book found!',
+            books: await BookController.getBooks()
+        })
+    } catch (err) {
+        res.send(err);
+    }
 });
+
 
 router.get('/addBook', function(req, res, next) {
     return res.render('addBook', {
@@ -24,14 +25,9 @@ router.get('/addBook', function(req, res, next) {
 });
 
 /* GET single book by id. */
-router.get('/:id', function(req, res, next) {
-    Book.findById({_id: req.params.id}, (err, book) => {
-        if(err) res.send(err);
-        console.log(book);
-        res.json({ 
-            message: 'Book found!',
-            book 
-        });
+router.get('/:id', async function(req, res, next) {
+    res.json({ 
+        message: 'Book found!'
     });
 });
   
