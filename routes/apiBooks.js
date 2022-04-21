@@ -4,40 +4,34 @@ var router = express.Router();
 let Book = require('../models/book');
 let BookController = require('../controller/bookController')
 
+
 /* GET books listing. */
 router.get('/', async (req, res, next) => {
-    let books = await BookController.getBooks()
-    console.log(books)
     try {
-        res.render('books', {
-            title: "Mybookshelf | Bookshelf",
-            books: books
+        res.send({
+            book: await BookController.getBooks()
         })
     } catch (err) {
-        res.send(err);
+        next(err);
     }
 });
 
-
-router.get('/addBook', async function(req, res, next) {
-    let book = await BookController.getBooks()
+router.get('/addBook', function(req, res, next) {
     return res.render('addBook', {
-        title: "Mybookshelf | Add new book",
-        book
+        title: "Mybookshelf | Add new book"
     });
 });
 
+
 /* GET single book by id. */
 router.get('/:id', async function(req, res, next) {
-    let bookFound = await BookController.getBook(req.params.id)
-    console.log(bookFound)
     try {
-        res.render('bookDetail', {
-            title: "Mybookshelf | Book Detail",
-            book: bookFound
+        console.log(req.params.id)
+        res.send({
+            book: await BookController.getBook(req.params.id)
         })
     } catch (err) {
-        res.send(err);
+        next(err);
     }
 });
   
@@ -54,10 +48,7 @@ router.post('/', function(req, res, next) {
             res.send(err);
         }
         else { //If no errors, send it back to the client
-            res.json({
-                message: "Book successfully added!", 
-                book 
-            });
+            res.json({book });
         }
     });
 });
@@ -67,10 +58,7 @@ router.put("/:id", function(req,res,next) {
         if(err) res.send(err);
         Object.assign(book, req.body).save((err, book) => {
             if(err) res.send(err);
-            res.json({ 
-                message: 'Book updated!', 
-                book 
-            });
+            res.json({book});
         });
     });
 });
@@ -80,10 +68,7 @@ router.put("/:id", function(req,res,next) {
 router.delete('/:id', function(req, res, next) {
     Book.deleteOne({_id : req.params.id}, (err, result) => {
         //Delete one non ritorna l'oggetto.
-        res.json({ 
-            message: "Book successfully deleted!", 
-            result 
-        });
+        res.json({result});
     });
 });
 
