@@ -9,10 +9,10 @@ let BookController = require('../controller/bookController')
 router.get('/', async (req, res, next) => {
     try {
         res.send({
-            books: await BookController.getBooks()
+            book: await BookController.getBooks()
         })
     } catch (err) {
-        res.send(err);
+        next(err);
     }
 });
 
@@ -28,10 +28,10 @@ router.get('/:id', async function(req, res, next) {
     try {
         console.log(req.params.id)
         res.send({
-            book: await BookController.getBook.bind(req.params.id)
+            book: await BookController.getBook(req.params.id)
         })
     } catch (err) {
-        res.send(err);
+        next(err);
     }
 });
   

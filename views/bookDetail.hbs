@@ -2,33 +2,25 @@
     <div class="col-1">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/books">Books</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Stats</a>
+                <a class="nav-link" href="/stats">Stats</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Settings</a>
+                <a class="nav-link" href="/settings">Settings</a>
             </li>
         </ul>
     </div>
     <div class="col">
         <div class="row" style="padding-top: 5%">
-            <div class="col-10 offset-2">
-                <h1 class="display-6">{{book.title}}</h1>
-                <h1 class="display-4">{{book.author}}</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4 offset-4">
-                <img src="https://i.imgur.com/aCwpF7V.jpg">
-            </div>
-            <div class="col-4">
-                <h4>{{status}}{{message}}</h4>
-                <h4>{{book}}</h4>
+            <div class="col-10 offset-1">
+                <h1>{{book.title}} ({{book.year}})</h1>
+                <h2><i>{{book.author}}</i></h2>
+                <h3>{{book.pages}}</h3>
             </div>
         </div>
     </div>

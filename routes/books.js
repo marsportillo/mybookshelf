@@ -6,11 +6,12 @@ let BookController = require('../controller/bookController')
 
 /* GET books listing. */
 router.get('/', async (req, res, next) => {
+    let books = await BookController.getBooks()
+    console.log(books)
     try {
-        res.render({
-            title: "Mybookshelf | Books List",
-            message: 'Book found!',
-            books: await BookController.getBooks()
+        res.render('books', {
+            title: "Mybookshelf | Bookshelf",
+            books: books
         })
     } catch (err) {
         res.send(err);
@@ -18,17 +19,26 @@ router.get('/', async (req, res, next) => {
 });
 
 
-router.get('/addBook', function(req, res, next) {
+router.get('/addBook', async function(req, res, next) {
+    let book = await BookController.getBooks()
     return res.render('addBook', {
-        title: "Mybookshelf | Add new book"
+        title: "Mybookshelf | Add new book",
+        book
     });
 });
 
 /* GET single book by id. */
 router.get('/:id', async function(req, res, next) {
-    res.json({ 
-        message: 'Book found!'
-    });
+    let bookFound = await BookController.getBook(req.params.id)
+    console.log(bookFound)
+    try {
+        res.render('bookDetail', {
+            title: "Mybookshelf | Book Detail",
+            book: bookFound
+        })
+    } catch (err) {
+        res.send(err);
+    }
 });
   
 /* POST new book. */
