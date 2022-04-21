@@ -8,7 +8,14 @@ var getBooks = async function() {
     return Book.find({}).lean().exec();
 }
 
+var editBook = async function(bookId, book) {
+    console.log("ID: " + bookId)
+    console.log("book" + book)
+    return await Book.findOneAndUpdate({_id: bookId}, book, {new: true}).lean().exec();
+}
+
 module.exports = {
     getBook, 
-    getBooks
+    getBooks,
+    editBook
 }

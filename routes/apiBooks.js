@@ -53,14 +53,14 @@ router.post('/', function(req, res, next) {
     });
 });
 /* UPDATE a book. */
-router.put("/:id", function(req,res,next) {
-    Book.findById({_id: req.params.id}, (err, book) => {
-        if(err) res.send(err);
-        Object.assign(book, req.body).save((err, book) => {
-            if(err) res.send(err);
-            res.json({book});
-        });
-    });
+router.put("/:id", async (req, res, next) => {
+    try {
+        res.send({
+            book: await BookController.editBook(req.params.id, req.body)
+        })
+    } catch (err) {
+        next(err);
+    }
 });
 
 
