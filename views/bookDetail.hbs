@@ -23,5 +23,85 @@
                 <h3>{{book.pages}}</h3>
             </div>
         </div>
+        <div class="row">
+            <div class="col-2 offset-1">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit book</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/books/{{book._id}}">
+                    <div class="form-group row">
+                        <label for="title" class="col-4 col-form-label">Title</label> 
+                            <div class="col-8">
+                                <input id="title" name="title" type="text" value="{{book.title}}" required="required" class="form-control">
+                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="author" class="col-4 col-form-label">Author</label> 
+                        <div class="col-8">
+                            <input id="author" name="author" type="text" value="{{book.author}}" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="year" class="col-4 col-form-label">Year</label> 
+                        <div class="col-8">
+                            <input id="year" name="year" value="{{book.year}}" type="text" required="required" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="pages" class="col-4 col-form-label">Pages</label> 
+                        <div class="col-6">
+                            <input id="pages" name="pages" type="text" value="{{book.pages}}" class="form-control">
+                        </div>
+                        <label for="currentPage" class="col-4 col-form-label">Current Pages</label> 
+                        <div class="col-6">
+                            <input id="currentPage" name="currentPage" value="{{book.currentPage}}" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <!--
+                    <div class="form-group row">
+                        <label for="startDate" class="col-4 col-form-label">Start Date</label> 
+                        <div class="col-8">
+                            <input id="startDate" name="startDate" value="{{book.startDate}}" type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="endDate" class="col-4 col-form-label">End Date</label> 
+                        <div class="col-8">
+                            <input id="endDate" name="endDate" value="{{book.endDate}}" type="date" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status">
+                            <option value="0">Not Started</option>
+                            <option value="1">In progress</option>
+                            <option value="2">Finished</option>
+                        </select>
+                    </div>
+        -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button name="submit" type="submit" class="btn btn-primary">Edit</button>
+      </div>
+      </form>
+    </div>
+  </div>
 </div>
