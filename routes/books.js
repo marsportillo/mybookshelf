@@ -62,17 +62,18 @@ router.post('/', function(req, res, next) {
     });
 });
 /* UPDATE a book. */
-router.put("/:id", function(req,res,next) {
-    Book.findById({_id: req.params.id}, (err, book) => {
-        if(err) res.send(err);
-        Object.assign(book, req.body).save((err, book) => {
-            if(err) res.send(err);
-            res.json({ 
-                message: 'Book updated!', 
-                book 
-            });
-        });
-    });
+router.post("/:id", async (req, res, next) => {
+    let bookFound = await BookController.editBook({_id: req.params.id}, req.body);
+
+    console.log(bookFound)
+    try {
+        res.render('bookDetail', {
+            title: "Mybookshelf | Bookshelf",
+            book: bookFound
+        })
+    } catch (err) {
+        res.send(err);
+    }
 });
 
 
