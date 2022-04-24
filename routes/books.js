@@ -65,7 +65,6 @@ router.post('/', function(req, res, next) {
 router.post("/:id", async (req, res, next) => {
     let bookFound = await BookController.editBook({_id: req.params.id}, req.body);
 
-    console.log(bookFound)
     try {
         res.render('bookDetail', {
             title: "Mybookshelf | Bookshelf",
@@ -78,14 +77,18 @@ router.post("/:id", async (req, res, next) => {
 
 
 /* DELETE new book. */
-router.delete('/:id', function(req, res, next) {
-    Book.deleteOne({_id : req.params.id}, (err, result) => {
-        //Delete one non ritorna l'oggetto.
-        res.json({ 
-            message: "Book successfully deleted!", 
-            result 
-        });
-    });
+router.post('/delete/:id',async function(req, res, next) {
+    let books = await BookController.deleteBook(req.params.id)
+    
+    try {
+        res.render('books', {
+            title: "Mybookshelf | Bookshelf",
+            books: books,
+            message: "Book deleted successfuly"
+        })
+    } catch (err) {
+        res.send(err);
+    }
 });
 
 module.exports = router;

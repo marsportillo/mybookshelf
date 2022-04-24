@@ -53,7 +53,7 @@ router.post('/', function(req, res, next) {
     });
 });
 /* UPDATE a book. */
-router.put("/:id", async (req, res, next) => {
+router.post("/:id", async (req, res, next) => {
     try {
         res.send({
             book: await BookController.editBook(req.params.id, req.body)
@@ -65,11 +65,14 @@ router.put("/:id", async (req, res, next) => {
 
 
 /* DELETE new book. */
-router.delete('/:id', function(req, res, next) {
-    Book.deleteOne({_id : req.params.id}, (err, result) => {
-        //Delete one non ritorna l'oggetto.
-        res.json({result});
-    });
+router.delete("/:id", async (req, res, next) => {
+    try {
+        res.send({
+            book: await BookController.deleteBook(req.params.id)
+        })
+    } catch (err) {
+        next(err);
+    }
 });
 
 module.exports = router;

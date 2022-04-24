@@ -14,8 +14,16 @@ var editBook = async function(bookId, book) {
     return await Book.findOneAndUpdate({_id: bookId}, book, {new: true}).lean().exec();
 }
 
+var deleteBook = async function(bookId) {
+    console.log("ID: " + bookId)
+    let response = await Book.deleteOne({_id: bookId}).lean().exec();
+    console.log(response)
+    return Book.find({}).lean().exec();
+}
+
 module.exports = {
     getBook, 
     getBooks,
-    editBook
+    editBook,
+    deleteBook
 }
