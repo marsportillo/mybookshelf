@@ -9,9 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login', function(req, res, next) {
-  return res.render('home', {
-    title: "Mybookshelf | Home"
-  });
+  return res.redirect('home');
 });
 
 router.get('/home', function(req, res, next) {

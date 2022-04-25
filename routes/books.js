@@ -44,11 +44,7 @@ router.post('/', async function(req, res, next) {
     let bookAdded = await BookController.addBook(req.body);
     console.log("Book added: " +  bookAdded)
     try {
-        res.render('bookDetail', {
-            title: "Mybookshelf | Bookshelf",
-            book: bookAdded,
-            message: "Book added!"
-        })
+        res.redirect("./books/"+ bookAdded._id)
     } catch (err) {
         res.send(err);
     }
@@ -57,12 +53,8 @@ router.post('/', async function(req, res, next) {
 /* UPDATE a book. */
 router.post("/:id", async (req, res, next) => {
     let bookFound = await BookController.editBook({_id: req.params.id}, req.body);
-
     try {
-        res.render('bookDetail', {
-            title: "Mybookshelf | Bookshelf",
-            book: bookFound
-        })
+        res.redirect("../books/"+ bookFound._id)
     } catch (err) {
         res.send(err);
     }
@@ -71,14 +63,9 @@ router.post("/:id", async (req, res, next) => {
 
 /* DELETE new book. */
 router.post('/delete/:id',async function(req, res, next) {
-    let books = await BookController.deleteBook(req.params.id)
-    
+    await BookController.deleteBook(req.params.id)
     try {
-        res.render('books', {
-            title: "Mybookshelf | Bookshelf",
-            books: books,
-            message: "Book deleted successfuly"
-        })
+        res.redirect("../")
     } catch (err) {
         res.send(err);
     }
