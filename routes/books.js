@@ -20,10 +20,8 @@ router.get('/', async (req, res, next) => {
 
 
 router.get('/addBook', async function(req, res, next) {
-    let book = await BookController.getBooks()
     return res.render('addBook', {
-        title: "Mybookshelf | Add new book",
-        book
+        title: "Mybookshelf | Add new book"
     });
 });
 
@@ -42,25 +40,20 @@ router.get('/:id', async function(req, res, next) {
 });
   
 /* POST new book. */
-router.post('/', function(req, res, next) {
-    //Creates a new book
-    console.log(req.body)
-    var newBook = new Book(req.body);
-    console.log(newBook);
-    //Save it into the DB.
-    console.log(req.body)
-    newBook.save((err,book) => {
-        if(err) {
-            res.send(err);
-        }
-        else { //If no errors, send it back to the client
-            res.json({
-                message: "Book successfully added!", 
-                book 
-            });
-        }
-    });
+router.post('/', async function(req, res, next) {
+    let bookAdded = await BookController.addBook(req.body);
+    console.log("Book added: " +  bookAdded)
+    try {
+        res.render('bookDetail', {
+            title: "Mybookshelf | Bookshelf",
+            book: bookAdded,
+            message: "Book added!"
+        })
+    } catch (err) {
+        res.send(err);
+    }
 });
+
 /* UPDATE a book. */
 router.post("/:id", async (req, res, next) => {
     let bookFound = await BookController.editBook({_id: req.params.id}, req.body);

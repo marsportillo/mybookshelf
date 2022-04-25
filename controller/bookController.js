@@ -5,25 +5,33 @@ var getBook = async function(bookId) {
 }
 
 var getBooks = async function() {
-    return Book.find({}).lean().exec();
+    return await Book.find({}).lean().exec();
 }
 
 var editBook = async function(bookId, book) {
-    console.log("ID: " + bookId)
-    console.log("book" + book)
     return await Book.findOneAndUpdate({_id: bookId}, book, {new: true}).lean().exec();
 }
 
 var deleteBook = async function(bookId) {
-    console.log("ID: " + bookId)
     let response = await Book.deleteOne({_id: bookId}).lean().exec();
-    console.log(response)
-    return Book.find({}).lean().exec();
+    return await getBooks();
+}
+
+var addBook = async function(bookToBeAdded) {
+    try {
+        var newBook = new Book(bookToBeAdded);
+        let bookAdded = await newBook.save();
+        return bookAdded.toObject()
+      } catch (err) {
+        console.log('err' + err);
+        return {err}
+      }
 }
 
 module.exports = {
     getBook, 
     getBooks,
     editBook,
-    deleteBook
+    deleteBook,
+    addBook
 }
