@@ -16,8 +16,8 @@
         </ul>
     </div>
 
-    <div class="col">
 
+    <div class="col">
         <div class="row" style="padding-top: 5%">
             <div class="col-8 offset-2">
                 <h1 class="display-6">Hi, Marco</h1>
@@ -36,7 +36,6 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Title</th>
                             <th scope="col">Author</th>
                             <th scope="col">Pages</th>
@@ -47,11 +46,17 @@
                     <tbody>
                     {{#each books}}
                         <tr>
-                            <td scope="row">#</td>
                             <td>{{this.title}}</td>
                             <td>{{this.author}}</td>
                             <td>{{this.pages}}</td>
-                            <td>{{this.status}}</td>
+                            <td>
+                                {{#switch this.status}} 
+                                    {{#case '0'}} <span class="badge bg-pill bg-secondary">Not Started</span> {{/case}} 
+                                    {{#case '1'}} <span class="badge bg-pill bg-primary">In progress</span> {{/case}} 
+                                    {{#case '2'}} <span class="badge bg-pill bg-danger">Blocked</span> {{/case}} 
+                                    {{#case '3'}} <span class="badge bg-pill bg-success">Completed</span> {{/case}} 
+                                {{/switch}}
+                            </td>
                             <td><a href="/books/{{this._id}}"><button type="button" class="btn btn-link">Go</button></a></td>
                         </tr>
                     {{/each}}
