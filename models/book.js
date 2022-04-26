@@ -11,7 +11,7 @@ let BookSchema = new Schema(
     currentPage: {type: Number, min: 1},
     createdAt: { type: Date, default: Date.now },
     endedAt: { type: Date},
-    status: { type: Number, default: 0}
+    status: { type: Number, default: 0} //0: Not started; 1: in progress; 2: blocked; 3: completed
   },
   {
     versionKey: false
