@@ -7,7 +7,6 @@ let BookController = require('../controller/bookController')
 /* GET books listing. */
 router.get('/', async (req, res, next) => {
     let books = await BookController.getBooks()
-    console.log(books)
     try {
         res.render('books', {
             title: "Mybookshelf | Bookshelf",
@@ -52,6 +51,7 @@ router.post('/', async function(req, res, next) {
 
 /* UPDATE a book. */
 router.post("/:id", async (req, res, next) => {
+    console.log(req.body);
     let bookFound = await BookController.editBook({_id: req.params.id}, req.body);
     try {
         res.redirect("../books/"+ bookFound._id)

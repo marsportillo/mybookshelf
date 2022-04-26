@@ -9,6 +9,7 @@ var getBooks = async function() {
 }
 
 var editBook = async function(bookId, book) {
+    console.log(book);
     return await Book.findOneAndUpdate({_id: bookId}, book, {new: true}).lean().exec();
 }
 
