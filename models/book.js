@@ -11,7 +11,7 @@ let BookSchema = new Schema(
     currentPage: {type: Number, min: 1},
     createdAt: { type: Date, default: Date.now },
     endedAt: { type: Date},
-    status: { type: String}
+    status: { type: Number, default: 0}
   },
   {
     versionKey: false
@@ -23,6 +23,9 @@ BookSchema.pre('save', next => {
   now = new Date();
   if(!this.createdAt) {
     this.createdAt = now;
+  }
+  if(!this.status) {
+    this.status = 0;
   }
   next();
 });
