@@ -54,10 +54,20 @@
                 <div class="form-group row">
                     <label for="status">Status</label>
                     <select class="form-control" name="status" id="status">
-                        <option value="0">Not Started</option>
-                        <option value="1">In progress</option>
-                        <option value="2">Blocked</option>
-                        <option value="3">Finished</option>
+                        <optgroup label="Selected">
+                            {{#switch book.status}} 
+                                {{#case '0'}} <option value="0" selected>Not Started</option> {{/case}} 
+                                {{#case '1'}} <option value="1" selected>In progress</option> {{/case}} 
+                                {{#case '2'}} <option value="2" selected>Blocked</option> {{/case}} 
+                                {{#case '3'}} <option value="3" selected>Finished</option> {{/case}} 
+                            {{/switch}}
+                        </optgroup>
+                        <optgroup label="Statuses">
+                            <option value="0">Not Started</option>
+                            <option value="1">In progress</option>
+                            <option value="2">Blocked</option>
+                            <option value="3">Finished</option>
+                        </optgroup>
                     </select>
                 </div>
             </div>
