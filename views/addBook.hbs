@@ -27,57 +27,7 @@
         <div class="row">
             <div class="col-6 offset-2">
                 <form method="POST" action="/books">
-                    <div class="form-group row">
-                        <label for="title" class="col-4 col-form-label">Title</label> 
-                            <div class="col-8">
-                                <input id="title" name="title" type="text" required="required" class="form-control">
-                            </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="author" class="col-4 col-form-label">Author</label> 
-                        <div class="col-8">
-                            <input id="author" name="author" type="text" required="required" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="year" class="col-4 col-form-label">Year</label> 
-                        <div class="col-8">
-                            <input id="year" name="year" type="text" required="required" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="pages" class="col-4 col-form-label">Pages</label> 
-                        <div class="col-8">
-                            <input id="pages" name="pages" type="text" class="form-control">
-                        </div>
-                        <label for="currentPage" class="col-4 col-form-label">Current Pages</label> 
-                        <div class="col-8">
-                            <input id="currentPage" name="currentPage" type="text" class="form-control">
-                        </div>
-                    </div>
-                                    <div class="form-group row">
-                    <label for="startedAt" class="col-4 col-form-label">Start Date</label> 
-                    <div class="col-8">
-                        <input id="startedAt" name="startedAt" value="{{moment book.startedAt format="DD/MM/YYYY"}}" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="endedAt" class="col-4 col-form-label">End Date</label> 
-                    <div class="col-8">
-                        <input id="endedAt" name="endedAt" value="{{moment book.endedAt format="DD/MM/YYYY"}}" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="status">Status</label>
-                    <select class="form-control" name="status" id="status">
-                        <option value="0">Not Started</option>
-                        <option value="0">Not Started</option>
-                        <option value="1">In progress</option>
-                        <option value="2">Blocked</option>
-                        <option value="3">Finished</option>
-                    </select>
-                </div>
-                    
+                    {{> formBook }}                  
                     <div class="form-group row" style="padding-top: 5%">
                         <div class="col-3 offset-5">
                             <button name="submit" type="submit" class="btn btn-primary">Add book</button>
