@@ -81,4 +81,7 @@ Handlebars.registerHelper('case', function(value, options) {
   }
 });
 
+Handlebars.registerPartial('deleteModal', '{{deleteModal}}');
+Handlebars.registerPartial('editModal', '{{editModal}}');
+
 module.exports = app;
