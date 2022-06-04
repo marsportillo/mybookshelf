@@ -8,7 +8,7 @@ let BookSchema = new Schema(
     author: { type: String, required: true },
     year: { type: Number, required: true },
     pages: { type: Number, required: true, min: 1 },
-    currentPage: {type: Number, min: 1},
+    currentPage: {type: Number, min: 0},
     createdAt: { type: Date, default: Date.now },
     startedAt: { type: Date},
     endedAt: { type: Date},

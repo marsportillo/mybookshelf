@@ -1,17 +1,31 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
 .mybookshelf-login-button {
   background-color: #FDA726;
   border-radius: 26.6667px;
   color: #091934;
   text-align: center;
-  font-weight : bold;
-  font-family: Poppins;
-  font-style: normal;
+  font-family: 'Lato', sans-serif;
   font-weight: bold;
+  width:100%;
+}
+
+.mybookshelf-button {
+  background-color: #FDA726;
+  color: #091934;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
   width:100%;
 }
 .mybookshelf-navbar {
   background: #0B1F41;
-  border-radius: 0px 40px 40px 0px;
+  font-family: 'Lato', sans-serif;
+  color: #FDA726;
+}
+
+.mybookshelf-color {
+  color: #FDA726;
 }
 
 .mybookshelf-underlined{
@@ -31,3 +45,8 @@
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.container-fluid{
+  padding-left: 0rem;
+  padding-right: 0rem;
+  overflow: hidden;
+}

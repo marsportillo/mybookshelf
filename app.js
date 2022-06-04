@@ -84,4 +84,5 @@ Handlebars.registerHelper('case', function(value, options) {
 Handlebars.registerPartial('deleteModal', '{{deleteModal}}');
 Handlebars.registerPartial('editModal', '{{editModal}}');
 Handlebars.registerPartial('formBook', '{{formBook}}');
+Handlebars.registerPartial('navbar', '{{navbar}}');
 module.exports = app;
