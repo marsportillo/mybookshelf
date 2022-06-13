@@ -5,7 +5,14 @@
             <div class="col-10 offset-1">
                 <h1>{{book.title}} ({{book.year}})</h1>
                 <h2><i>{{book.author}}</i></h2>
-                <h3>{{book.pages}}</h3>
+                <h3>{{book.currentPage}}/{{book.pages}}</h3>
+                {{#switch book.status}}
+                    {{#case '0'}} <span class="badge bg-pill bg-secondary">Not Started</span> {{/case}}
+                    {{#case '1'}} <span class="badge bg-pill bg-primary">In progress</span> {{/case}}
+                    {{#case '2'}} <span class="badge bg-pill bg-danger">Blocked</span> {{/case}}
+                    {{#case '3'}} <span class="badge bg-pill bg-success">Finished</span> {{/case}}
+                {{/switch}}
+                <p></p>
             </div>
         </div>
         <div class="row">
@@ -13,7 +20,8 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
             </div>
             <div class="col-2 offset-1">
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal"
+                    data-target="#deleteModal">Delete</button>
             </div>
         </div>
     </div>
