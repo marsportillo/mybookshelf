@@ -3,7 +3,7 @@
     <div class="col">
         <div class="row" style="padding-top: 5%">
             <div class="col-md-2 offset-9 ">
-                <a href="/books/addBook"><button type="button" class="btn  mybookshelf-button">Add book</button></a>
+                <a href="/books/addBook"><button type="button" class="btn mybookshelf-button">Add book</button></a>
             </div>
         </div>
         <div class="row">
@@ -13,8 +13,7 @@
                         <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Author</th>
-                            <th scope="col">Pages</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Progress</th>
                             <th scope="col">Detail</th>
                         </tr>
                     </thead>
@@ -23,15 +22,14 @@
                         <tr>
                             <td>{{this.title}}</td>
                             <td>{{this.author}}</td>
-                            <td>{{this.pages}}</td>
-                            <td>
-                                {{#switch this.status}} 
-                                    {{#case '0'}} <span class="badge bg-pill bg-secondary">Not Started</span> {{/case}} 
-                                    {{#case '1'}} <span class="badge bg-pill bg-primary">In progress</span> {{/case}} 
-                                    {{#case '2'}} <span class="badge bg-pill bg-danger">Blocked</span> {{/case}} 
-                                    {{#case '3'}} <span class="badge bg-pill bg-success">Finished</span> {{/case}} 
-                                {{/switch}}
-                            </td>
+                            {{#switch this.status}} 
+                                <td>
+                                    {{#case '0'}} <div class="progress"><div class="progress-bar bg-info" role="progressbar" style="width: {{percentage}}%" aria-valuenow="{{this.currentPage}}" aria-valuemin="0" aria-valuemax="{{this.pages}}"></div></div> {{/case}} 
+                                    {{#case '1'}} <div class="progress"><div class="progress-bar bg-primary" role="progressbar" style="width: {{percentage}}%" aria-valuenow="{{this.currentPage}}" aria-valuemin="0" aria-valuemax="{{this.pages}}"></div></div> {{/case}} 
+                                    {{#case '2'}} <div class="progress"><div class="progress-bar bg-danger" role="progressbar" style="width: {{percentage}}%" aria-valuenow="{{this.currentPage}}" aria-valuemin="0" aria-valuemax="{{this.pages}}"></div></div> {{/case}} 
+                                    {{#case '3'}} <div class="progress"><div class="progress-bar bg-success" role="progressbar" style="width: {{percentage}}%" aria-valuenow="{{this.currentPage}}" aria-valuemin="0" aria-valuemax="{{this.pages}}"></div></div> {{/case}} 
+                                </td>
+                            {{/switch}}
                             <td><a href="/books/{{this._id}}"><button type="button" class="btn btn-link">Go</button></a></td>
                         </tr>
                     {{/each}}
