@@ -81,6 +81,10 @@ Handlebars.registerHelper('case', function(value, options) {
   }
 });
 
+Handlebars.registerHelper('percentage', function(value, options) {
+  return this.currentPage/this.pages*100;
+});
+
 Handlebars.registerPartial('deleteModal', '{{deleteModal}}');
 Handlebars.registerPartial('editModal', '{{editModal}}');
 Handlebars.registerPartial('formBook', '{{formBook}}');
