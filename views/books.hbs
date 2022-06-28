@@ -13,6 +13,7 @@
                         <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Author</th>
+                            <th scope="col">Rating</th>
                             <th scope="col">Progress</th>
                             <th scope="col">Detail</th>
                         </tr>
@@ -22,6 +23,7 @@
                         <tr>
                             <td>{{this.title}}</td>
                             <td>{{this.author}}</td>
+                            <th scope="col">{{this.rating}}/5</th>
                             {{#switch this.status}} 
                                 <td>
                                     {{#case '0'}} <div class="progress"><div class="progress-bar bg-info" role="progressbar" style="width: {{percentage}}%" aria-valuenow="{{this.currentPage}}" aria-valuemin="0" aria-valuemax="{{this.pages}}"></div></div> {{/case}} 
