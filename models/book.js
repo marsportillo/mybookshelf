@@ -12,7 +12,8 @@ let BookSchema = new Schema(
     createdAt: { type: Date, default: Date.now },
     startedAt: { type: Date},
     endedAt: { type: Date},
-    status: { type: Number, default: 0} //0: Not started; 1: in progress; 2: blocked; 3: completed
+    status: { type: Number, default: 0}, //0: Not started; 1: in progress; 2: blocked; 3: completed
+    rating: { type: Number, default: 0}
   },
   {
     versionKey: false
@@ -27,6 +28,9 @@ BookSchema.pre('save', next => {
   }
   if(!this.status) {
     this.status = 0;
+  }
+  if(!this.rating) {
+    this.rating = 0;
   }
   next();
 });
