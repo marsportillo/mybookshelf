@@ -3,7 +3,7 @@
     <div class="col">
         <div class="row" style="padding-top: 5%">
             <div class="col-10 offset-1">
-                <h1>{{book.title}} ({{book.year}}) [Rating: {{book.rating}}/5]</h1>
+                <h1>{{book.title}} ({{book.year}}) [Voto: {{book.rating}}/5]</h1>
                 <h2><i>{{book.author}}</i></h2>
                 <h3>{{book.currentPage}}/{{book.pages}}</h3>
                 {{#switch book.status}}
@@ -17,11 +17,11 @@
         </div>
         <div class="row">
             <div class="col-2 offset-1">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Modifica</button>
             </div>
             <div class="col-2 offset-1">
                 <button type="button" class="btn btn-danger" data-toggle="modal"
-                    data-target="#deleteModal">Delete</button>
+                    data-target="#deleteModal">Cancella</button>
             </div>
         </div>
     </div>

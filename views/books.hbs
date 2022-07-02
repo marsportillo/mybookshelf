@@ -3,7 +3,7 @@
     <div class="col">
         <div class="row" style="padding-top: 5%">
             <div class="col-md-2 offset-9 ">
-                <a href="/books/addBook"><button type="button" class="btn mybookshelf-button">Add book</button></a>
+                <a href="/books/addBook"><button type="button" class="btn mybookshelf-button">Aggiungi libro</button></a>
             </div>
         </div>
         <div class="row">
@@ -11,11 +11,11 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Author</th>
-                            <th scope="col">Rating</th>
-                            <th scope="col">Progress</th>
-                            <th scope="col">Detail</th>
+                            <th scope="col">Titolo</th>
+                            <th scope="col">Autore</th>
+                            <th scope="col">Voto</th>
+                            <th scope="col">Avanzamento</th>
+                            <th scope="col">Dettaglio</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +32,7 @@
                                     {{#case '3'}} <div class="progress"><div class="progress-bar bg-success" role="progressbar" style="width: {{percentage}}%" aria-valuenow="{{this.currentPage}}" aria-valuemin="0" aria-valuemax="{{this.pages}}"></div></div> {{/case}} 
                                 </td>
                             {{/switch}}
-                            <td><a href="/books/{{this._id}}"><button type="button" class="btn btn-link">Go</button></a></td>
+                            <td><a href="/books/{{this._id}}"><button type="button" class="btn btn-link">Vai</button></a></td>
                         </tr>
                     {{/each}}
                 </tbody>
