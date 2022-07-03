@@ -7,6 +7,7 @@ let BookController = require('../controller/bookController')
 /* GET books listing. */
 router.get('/', async (req, res, next) => {
     let books = await BookController.getBooks()
+    console.log(`books are: ${books}`)
     try {
         res.render('books', {
             title: "Mybookshelf | Bookshelf",

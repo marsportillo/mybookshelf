@@ -33,7 +33,8 @@
     "morgan": "^1.9.1"
   },
   "scripts": {
-    "start": "set node_env=dev && node app.js",
-    "test": "mocha --timeout 10000"
+    "start": "export NODE_ENV=dev && node app.js",
+    "test": "mocha --timeout 10000",
+    "run": "export NODE_ENV=prod && node app.js"
   }
 }

@@ -16,6 +16,7 @@ let config = require('config');
 
 mongoose.connect(config.DBHost);
 
+console.log(config.DBHost);
 var app = express();
 
 //don't show the log when it is test
