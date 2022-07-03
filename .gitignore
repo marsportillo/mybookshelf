@@ -105,3 +105,6 @@ dist
 
 # Config db uri
 node_modules/
+
+# Prod info
+config/prod.json
